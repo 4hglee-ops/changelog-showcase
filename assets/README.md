@@ -2,9 +2,25 @@
 
 이 디렉터리는 CHANGELOG의 **공개 가능한 제품 화면과 다이어그램**을 저장합니다.
 
-## 추가 예정
+## 현재 대표 화면
 
 - `connected-evidence-alpha.png` — 현재 Connected Evidence Alpha 대표 화면
+  - Decision Log + Connected Evidence + Evidence Chain이 한 화면에 보이는 Local Alpha 캡처
+  - Showcase README Hero와 `docs/connected-evidence-alpha.md`에서 함께 사용
+  - 완성 제품 목업이 아니라 현재 실제 프로토타입 상태를 보여주는 이미지
+
+대표 화면에서 보여주는 핵심:
+
+```text
+Decision
+↓
+Discussion · Documentation · Implementation · Verification
+↓
+Evidence Coverage / Evidence Chain
+```
+
+## 추가 가능 Assets
+
 - `activity-to-evidence.png` — Raw Activity → Connected Evidence 비교
 - `product-mockup.png` — 1차 제품 목업
 - `product-vision.png` — 장기 제품 비전
