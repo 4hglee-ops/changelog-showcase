@@ -11,6 +11,30 @@
 
 ---
 
+## 현재 Alpha 화면
+
+![CHANGELOG Connected Evidence Alpha](assets/connected-evidence-alpha.png)
+
+> **Connected Evidence Alpha** — 148개의 raw 작업 기록을 그대로 나열하는 대신, 선택한 Decision을 중심으로 **Discussion · Documentation · Implementation · Verification** 근거를 연결해 과거의 판단 맥락을 복원하는 경험을 검증하고 있습니다.
+
+화면의 핵심은 `Graph를 많이 보여주는 것`이 아니라 **하나의 Decision에 필요한 근거만 압축해서 다시 찾게 하는 것**입니다.
+
+```text
+Decision
+"Context Graph를 1차 제품에 포함"
+
+Discussion       1 Evidence
+Documentation    3 Evidence
+Implementation   2 Evidence
+Verification     2 Evidence
+```
+
+왼쪽에서는 실제 Decision Log를 탐색하고, 오른쪽에서는 선택한 Decision에 연결된 대표 Evidence와 Evidence Chain을 확인합니다. 연결되지 않은 기록은 Relation Candidate로 분리해 자동화와 사용자 확인의 경계를 검증합니다.
+
+> 이 이미지는 현재 구현 중인 **실제 Local Alpha 화면**입니다. 완성 제품 목업이 아니며, 공개 Showcase에는 제품 설명에 필요한 범위의 화면만 사용합니다.
+
+---
+
 ## 왜 CHANGELOG인가
 
 개발 과정의 중요한 기록은 한곳에 남지 않습니다.
