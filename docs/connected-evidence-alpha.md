@@ -1,5 +1,27 @@
 # Connected Evidence Alpha
 
+## 현재 화면
+
+![CHANGELOG Connected Evidence Alpha](../assets/connected-evidence-alpha.png)
+
+현재 Local Alpha는 **Decision Log에서 하나의 결정을 선택하고, 그 판단을 설명하는 Discussion · Documentation · Implementation · Verification을 대표 Evidence 중심으로 확인하는 흐름**을 검증합니다.
+
+현재 화면에서 선택한 예시는 `Context Graph를 1차 제품에 포함` Decision입니다.
+
+```text
+Decision
+"Context Graph를 1차 제품에 포함"
+
+├─ Discussion       1 Evidence
+├─ Documentation    3 Evidence
+├─ Implementation   2 Evidence
+└─ Verification     2 Evidence
+```
+
+이 숫자는 제품 성과 지표가 아니라 **실제 Local Alpha 데이터에서 해당 Decision에 연결된 Evidence Coverage 예시**입니다.
+
+---
+
 ## 목표
 
 Connected Evidence Alpha의 목표는 **많은 개발 기록을 수집하는 것 자체가 아니라, 과거의 중요한 판단을 다시 이해할 수 있도록 기록 사이의 관계를 연결하는 것**입니다.
@@ -102,8 +124,9 @@ Verification
 
 1. Decision을 선택합니다.
 2. Decision에 연결된 Evidence 역할별 대표 기록을 봅니다.
-3. 필요한 경우 원본 Source를 확인합니다.
-4. 연결이 부족하면 Relation Candidate를 검토합니다.
+3. Evidence Coverage와 Chain을 통해 빠진 단계가 있는지 확인합니다.
+4. 필요한 경우 원본 Source를 확인합니다.
+5. 연결이 부족하면 Relation Candidate를 검토합니다.
 
 ### 대표 Evidence
 
@@ -112,11 +135,23 @@ raw record가 많아져도 Graph에 모두 노출하지 않습니다.
 ```text
 Discussion       → 대표 Evidence 1개
 Documentation    → 대표 Evidence 1개
-Implementation   → 대표 Change Set 1개
-Verification     → 최신 성공 검증 1개
+Implementation   → 대표 Change Set / 구현 Evidence
+Verification     → 대표 검증 Evidence
 ```
 
 세부 기록은 필요할 때만 확장합니다.
+
+### Evidence Chain
+
+현재 화면의 하단 Chain은 긴 원본 제목을 다시 나열하지 않고 다음 정보만 압축해서 보여줍니다.
+
+```text
+Discussion      Documentation      Implementation      Verification
+1 Evidence  →   3 Evidence     →   2 Evidence      →   2 Evidence
+ChatGPT          Notion             GitHub              GitHub
+```
+
+상단 Connected Evidence 영역에서 대표 Evidence 제목을 보여주기 때문에, Chain은 **역할·개수·Source를 빠르게 스캔하는 보조 View**로 사용합니다.
 
 ---
 
@@ -173,6 +208,8 @@ Candidate Group 6개
 
 동일 CI / 동일 Change Set / 동일 의미의 반복 Commit을 하나의 후보 묶음으로 표현하고 대표 Evidence만 연결합니다.
 
+현재 화면에서는 Candidate가 없거나 이미 충분한 Evidence가 연결된 경우 Recommended Relations 영역을 비워두어, **추천을 억지로 생성하지 않는 것**도 함께 검증하고 있습니다.
+
 ---
 
 ## Change Set
@@ -197,6 +234,21 @@ Change Set = 사람이 기억하는 의미 있는 변화 단위
 ```
 
 현재 Alpha의 Change Set은 PR 기반 grouping에서 시작했으며, 향후 Commit 내용·파일 변경·Decision 관계를 함께 사용해 의미 단위로 확장할 계획입니다.
+
+---
+
+## 화면에서 확인할 수 있는 것
+
+현재 대표 화면은 다음 제품 가설을 한 번에 보여줍니다.
+
+- Decision Log가 별도 중심 객체로 존재한다.
+- 하나의 Decision에서 L1~L4 Evidence Coverage를 확인할 수 있다.
+- Source 이름보다 Evidence 역할을 먼저 이해할 수 있다.
+- Graph에는 모든 raw record가 아니라 대표 Evidence를 우선 노출한다.
+- Evidence Chain은 복잡한 Graph를 다시 그리지 않고 연결 상태를 요약한다.
+- Relation Candidate는 필요한 경우에만 검토 대상으로 등장한다.
+
+즉 이 화면은 완성 제품을 보여주는 것이 아니라 **Connected Evidence라는 핵심 가설이 실제 UI와 데이터에서 성립하는지 검증하는 현재 Alpha 상태**를 보여줍니다.
 
 ---
 
